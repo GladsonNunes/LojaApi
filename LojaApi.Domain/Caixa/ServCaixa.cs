@@ -1,10 +1,14 @@
 ﻿namespace LojaApi.Domain
 {
-    public class ServCaixa
+    public class ServCaixa : ServCore<Caixa>, IServCaixa
     {
+        public ServCaixa(IRepCore<Caixa> rep) : base(rep)
+        {
+        }
+
         public List<Caixa> TrazCaixaDisponivel()
         {
-            return new List<Caixa>();
+            return GetAll();
         }
     }
 }

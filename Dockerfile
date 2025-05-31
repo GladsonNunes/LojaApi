@@ -9,6 +9,7 @@ COPY LojaApi.Application/*.csproj ./LojaApi.Application/
 COPY LojaApi.Domain/*.csproj ./LojaApi.Domain/
 COPY LojaApi.Infrastructure/*.csproj ./LojaApi.Infrastructure/
 COPY LojaApi.Repository/*.csproj ./LojaApi.Repository/
+COPY LojaApi.Tests/*.csproj ./LojaApi.Tests/
 RUN dotnet restore
 
 # Copia tudo e compila o projeto

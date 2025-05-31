@@ -1,4 +1,7 @@
-﻿namespace LojaApi.Domain.DTO
+﻿using System.ComponentModel;
+using System.Reflection;
+
+namespace LojaApi.Domain.DTO
 {
     public class DadosEmpacotarProdutosDTO
     {
@@ -20,7 +23,29 @@
 
     public class CaixaComProdutoDTO
     {
-        public string IdCaixa { get; set; }
-        public List<string> IdProduto { get; set; }
+        public string DescricaoCaixa { get; set; }
+        public List<string> DescricaoProduto { get; set; }
+        public string Observacao { get; set; }
+    }
+
+    public enum EnumObservacao
+    {
+        [Description("Produto não cabe em nenhuma caixa disponível.")]
+        ProdutoNaoCabeEmNenhumaCaixa,
+
+        [Description("Não há caixa disponível")]
+        NaoHaCaixaDisponivel
+    }
+
+    public static class EnumExtensions
+    {
+        public static string GetDescription(this Enum value)
+        {
+            var field = value.GetType().GetField(value.ToString());
+
+            var attribute = field.GetCustomAttribute<DescriptionAttribute>();
+
+            return attribute?.Description ?? value.ToString();
+        }
     }
 }

@@ -6,7 +6,7 @@ services:
     container_name: sqlserver
     environment:
       - ACCEPT_EULA=Y
-      - SA_PASSWORD=Your_password123
+      - SA_PASSWORD=LojaDb123
     ports:
       - "1433:1433"
     networks:
@@ -21,7 +21,7 @@ services:
     container_name: loja-api
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=LojaDb;User Id=sa;Password=Your_password123;
+      - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=LojaDb;User Id=LojaDb;Password=LojaDb123;
     ports:
       - "5000:80"
     depends_on:

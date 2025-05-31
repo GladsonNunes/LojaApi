@@ -1,8 +1,8 @@
 ﻿namespace LojaApi.Domain
 {
-    public class Caixa
+    public class Caixa : Identificador
     {
-        public string IdCaixa { get; set; }
+        public string Descricao { get; set; }
         public Dimensoes Dimensoes { get; set; }
     }
 }

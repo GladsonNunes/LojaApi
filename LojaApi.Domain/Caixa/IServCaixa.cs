@@ -1,6 +1,6 @@
 ﻿namespace LojaApi.Domain
 {
-    public interface IServCaixa
+    public interface IServCaixa : IServCore<Caixa>
     {
         public List<Caixa> TrazCaixaDisponivel();
     }

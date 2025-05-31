@@ -2,7 +2,7 @@
 {
     public class DadosEmpacotarPedidoDTO
     {
-        public int Pedido_id { get; set; }
-        public List<CaixaComProdutoDTO> Caixas { get; set; }
+        public int CodigoPedido { get; set; }
+        public List<CaixaComProdutoDTO> ListaCaixa { get; set; }
     }
 }

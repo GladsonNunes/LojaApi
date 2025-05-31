@@ -1,10 +1,13 @@
 ﻿namespace LojaApi.Domain
 {
-    public class Produto
+    public class Produto : Identificador
     {
-        public string IdProduto { get; set; }
+        //public int Id { get; set; }
+        public string Descricao { get; set; }
         public Dimensoes Dimensoes { get; set; }
         public List<Dimensoes> Rotacoes => ObterRotacoes();
+
+        public ICollection<PedidoProduto> Itens { get; set; } = new List<PedidoProduto>();
 
         private List<Dimensoes> ObterRotacoes()
         {
@@ -19,6 +22,7 @@
         };
 
         }
+
     }
 }
 

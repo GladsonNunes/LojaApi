@@ -1,8 +1,7 @@
 ﻿namespace LojaApi.Domain
 {
-    public class Pedido
+    public class Pedido : Identificador
     {
-        public int IdPedido { get; set; }
-        public List<Produto> Produto { get; set; }
+        public ICollection<PedidoProduto> ListaProduto { get; set; } = new List<PedidoProduto>();
     }
 }
