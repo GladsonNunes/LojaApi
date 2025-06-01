@@ -80,4 +80,4 @@ Os controllers abaixo possuem os mesmo endpoint de cadastro
 
 | Método | Endpoint             | Descrição                       |
 |--------|----------------------|---------------------------------|
-| POST   | /Emapacotar          | Empacota uma Lista de pedido.   |
+| POST   | /Empacotar          | Empacota uma Lista de pedido.   |
