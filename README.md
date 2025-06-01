@@ -73,7 +73,7 @@ Os controllers abaixo possuem os mesmo endpoint de cadastro
 | PUT    | /Update              | Atualiza os dados de um cadastro existente.          |
 | DELETE | /Delete              | Exclui um cadastro específico pelo Id.          |
 
-🔹 MatchController
+🔹 Pedido
 
 - O `Pedido/Empacotar` é responsável por gerenciar as operações relacionadas a empacotamente de pedidos. A funcionalidade é receber uma lista de pedidos e retornar uma lista de caixa com os produtos, respeitando a regra se o produto cabe na caixa. 
 
