@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   sqlserver:
     image: mcr.microsoft.com/mssql/server:2022-latest
@@ -13,21 +11,29 @@ services:
       - microservice-network
     volumes:
       - sqlserverdata:/var/opt/mssql
+    healthcheck:
+      test: ["CMD-SHELL", "echo > /dev/tcp/localhost/1433"]
+      interval: 20s 
+      timeout: 30s
+      retries: 5
+      start_period: 30s
+
 
   loja-api:
-    build:
-      context: .
-      dockerfile: Dockerfile
     container_name: loja-api
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-      - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=LojaDb;User Id=LojaDb;Password=LojaDb123;
+    build:
+      dockerfile: Dockerfile
+      context: .
     ports:
-      - "5000:80"
-    depends_on:
-      - sqlserver
+      - "8080:8080"
     networks:
       - microservice-network
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=MASTER;User Id=sa;Password=LojaDb123;TrustServerCertificate=True
+    depends_on: ["sqlserver"]
+    restart: unless-stopped
+
 
 networks:
   microservice-network:

@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LojaApi.Repository.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250531172359_CreateInicial")]
+    [Migration("20250531191239_CreateInicial")]
     partial class CreateInicial
     {
         /// <inheritdoc />

@@ -98,14 +98,11 @@ using (var scope = app.Services.CreateScope())
     context.Database.Migrate();
 }
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
 
-app.UseHttpsRedirection();
+app.UseSwagger();
+app.UseSwaggerUI();
+
+//app.UseHttpsRedirection();
 
 app.UseHttpsRedirection();
 app.UseAuthentication(); 
