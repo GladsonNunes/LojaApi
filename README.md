@@ -34,7 +34,28 @@ A API estará disponível em `http://localhost:8080`. Você pode testar os endpo
 
 A API estará disponível em `http://localhost:8080/swagger/index.html`. Você pode testar os endpoints utilizando o swagger.
 
+# Autorização da API - Loja API
 
+Esta API utiliza **autenticação e autorização baseada em JWT (JSON Web Tokens)** para proteger os endpoints e garantir que apenas usuários autorizados possam acessá-los.
+
+## 🔒 Como funciona a autorização
+
+A autorização é feita por meio de tokens JWT. Após o login bem-sucedido, um token é gerado e deve ser enviado nas requisições subsequentes no cabeçalho `Authorization`.
+
+✅ Fluxo de autenticação
+| Método | Endpoint             | Descrição                       |
+|--------|----------------------|---------------------------------|
+| POST   | Auth/login          | Retorna Token Authorization   |
+
+Realizar um login enviando as credenciais (usuário "ADMIN" e senha"123") para /login.
+
+A API valida as credenciais.
+
+Um token JWT é retornado em caso de sucesso.
+
+utilizar esse token no cabeçalho Authorization nas próximas requisições.
+
+A API valida o token e concede acesso conforme as permissões.
 
 ## 📜 Tecnologias Utilizadas
 
